@@ -10,17 +10,61 @@
 <body>
     <h1>Form Basics</h1>
 
-
-
-
     <p id="uptonSinclairQuote">
 It is difficult to get a man to understand something, when his salary depends upon his not understanding it! -- Upton Sinclair
     </p>
 
+    <form id="form1" name="form1">
+        <label for="male">Name</label>
+        <input id="text1" name="text1"><br>
+        
+        <p>Favorite Color</p>
+        
+        <label for="male">Red</label>
+        <input type="radio" name="radio1" value="red"><br>
+        <label for="male">Green</label>
+        <input type="radio" name="radio1" value="green"><br>
+        <label for="male">Blue</label>
+        <input type="radio" name="radio1" value="blue"><br>
+
+        <p>Chosen Day</p>
+
+        <select name="days" id="select1">
+            <option value="empty"></option>
+            <option value="mon">Mon</option>
+            <option value="wed">Wed</option>
+            <option value="fri">Fri</option>
+        </select><br><br>
+        
+        <textarea id="textarea1" name="textarea1" rows="4" cols="50" placeholder="Please provide any additional feedback"></textarea>
+    </form>
 
     <script>
 
+        // Set the value of the text input to your name
+        let name = document.querySelector("#text1")
+        name.value = "Ali"
 
+        // Select the radio button with the value green
+        let rbs = document.querySelectorAll('input[name="radio1"]')
+
+        for (const rb of rbs) {
+            if (rb.value === "green")
+                rb.checked = true;
+        }
+
+        // Set the value of the textarea element to be the quotation
+        let textarea = document.querySelector('#textarea1')
+        let quote = document.querySelector('#uptonSinclairQuote').innerHTML
+        textarea.value = quote
+
+        // Add a change event handler on the select control;  the function should log the selected value to the console.
+        let selectControl = document.querySelector("#select1")
+        console.log(selectControl)
+        selectControl.addEventListener('change', () => {
+            console.log(selectControl.value)
+        })
+        
     </script>
   </body>
 </html>
